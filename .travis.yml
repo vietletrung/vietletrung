@@ -6,4 +6,4 @@ before_install:
   - docker build -t vietletrung/vietletrung -f Dockerfile.dev .
 
 script:
-  - docker run vietletrung/vietletrung npm run test -- --coverage
+  - docker run -e CI=true vietletrung/vietletrung npm run test -- --coverage
