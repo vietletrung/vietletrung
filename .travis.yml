@@ -1,0 +1,9 @@
+sudo: required
+service:
+  - docker
+
+before_install:
+  - docker build -t vietletrung/vietletrung - file Dockerfile.dev .
+
+script:
+  - docker run vietletrung/vietletrung npm run test -- --coverage
