@@ -7,3 +7,15 @@ before_install:
 
 script:
   - docker run -e CI=true vietletrung/vietletrung npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker"
+  env: "Docker-env"
+  bucker_name: "elasticbeanstalk-us-east-2-883158296135"
+  bucker_path: "path"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
